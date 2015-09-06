@@ -1,6 +1,7 @@
 React = require("react")
+GPA = require('../common/GPA')
 
-{div} = React.DOM
+{ div } = React.DOM
 
 module.exports = React.createClass
   displayName: "InfoComponent"
@@ -8,3 +9,6 @@ module.exports = React.createClass
   render: ->
     div {},
       "Info Component"
+      div {}, GPA.calculateLSMGPA(@props.courses)
+      div {}, GPA.calculateStandardGPA(@props.courses)
+      div {}, GPA.calculateHonors(@props.courses)

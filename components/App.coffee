@@ -1,15 +1,24 @@
-React = require("react")
-CourseStore = require("../stores/CourseStore")
-CourseActions = require("../actions/CourseActions")
-ReactStateMagicMixin = require("../assets/vendor/ReactStateMagicMixin")
+React = require('react')
+ReactBootstrap = require('react-bootstrap')
+CourseStore = require('../stores/CourseStore')
+CourseActions = require('../actions/CourseActions')
+ReactStateMagicMixin = require('../assets/vendor/ReactStateMagicMixin')
 
-InfoComponent = React.createFactory require("./InfoComponent")
+InfoComponent = React.createFactory require('./InfoComponent')
 CoursesComponent = React.createFactory require('./CoursesComponent')
+
+Grid = React.createFactory ReactBootstrap.Grid
+Row = React.createFactory ReactBootstrap.Row
+Col = React.createFactory ReactBootstrap.Col
+
+Navbar = React.createFactory ReactBootstrap.Navbar
+Nav = React.createFactory ReactBootstrap.Nav
+NavItem = React.createFactory ReactBootstrap.NavItem
 
 { div } = React.DOM
 
 module.exports = React.createClass
-  displayName: "App"
+  displayName: 'App'
 
   mixins: [ ReactStateMagicMixin ]
 
@@ -21,5 +30,14 @@ module.exports = React.createClass
 
   render: ->
     div {},
-      InfoComponent {courses: @state.courses}
-      CoursesComponent {courses: @state.courses}
+      Navbar {brand: 'GPA Calculator', id: 'main-nav'},
+        Nav {},
+          NavItem {eventKey: 1, href: '#'}, 'Home'
+          NavItem {eventKey: 1, href: '#'}, 'About'
+          NavItem {eventKey: 1, href: '#'}, 'FAQ'
+      Grid {id: 'container'},
+        Row {},
+          Col {xs: 12, md: 4},
+            InfoComponent {courses: @state.courses}
+          Col {xs: 12, md: 8},
+            CoursesComponent {courses: @state.courses}
