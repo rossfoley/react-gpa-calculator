@@ -4,16 +4,14 @@ CourseStore = require('../stores/CourseStore')
 CourseActions = require('../actions/CourseActions')
 ReactStateMagicMixin = require('../assets/vendor/ReactStateMagicMixin')
 
-InfoComponent = React.createFactory require('./InfoComponent')
+GPAComponent = React.createFactory require('./GPAComponent')
 CoursesComponent = React.createFactory require('./CoursesComponent')
+InfoComponent = React.createFactory require('./InfoComponent')
 
 Grid = React.createFactory ReactBootstrap.Grid
 Row = React.createFactory ReactBootstrap.Row
 Col = React.createFactory ReactBootstrap.Col
-
 Navbar = React.createFactory ReactBootstrap.Navbar
-Nav = React.createFactory ReactBootstrap.Nav
-NavItem = React.createFactory ReactBootstrap.NavItem
 
 { div } = React.DOM
 
@@ -30,14 +28,11 @@ module.exports = React.createClass
 
   render: ->
     div {},
-      Navbar {brand: 'GPA Calculator', id: 'main-nav'},
-        Nav {},
-          NavItem {eventKey: 1, href: '#'}, 'Home'
-          NavItem {eventKey: 1, href: '#'}, 'About'
-          NavItem {eventKey: 1, href: '#'}, 'FAQ'
+      Navbar {brand: 'GPA Calculator', id: 'main-nav'}
       Grid {id: 'container'},
-        Row {},
+        Row {id: 'main-row'},
           Col {xs: 12, md: 4},
-            InfoComponent {courses: @state.courses}
+            GPAComponent {courses: @state.courses}
           Col {xs: 12, md: 8},
             CoursesComponent {courses: @state.courses}
+        InfoComponent {}

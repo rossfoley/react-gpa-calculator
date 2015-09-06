@@ -1,24 +1,28 @@
-React = require("react")
+React = require('react')
 ReactBootstrap = require('react-bootstrap')
 Table = React.createFactory ReactBootstrap.Table
 CourseActions = require('../actions/CourseActions')
+CourseComponent = React.createFactory require('./CourseComponent')
 
-{ div, tr, td, th, thead, tbody, button } = React.DOM
+{ div, tr, td, th, thead, tbody, button, h2 } = React.DOM
 
 module.exports = React.createClass
-  displayName: "CoursesComponent"
+  displayName: 'CoursesComponent'
+
+  propTypes:
+    courses: React.PropTypes.array.isRequired
 
   newCourse: ->
     CourseActions.createCourse(
-      name: "Test Course"
-      grade: "A+"
-      level: "AP"
+      name: 'Test Course'
+      grade: 'A+'
+      level: 'AP'
       credit: 1.0
     )
 
   render: ->
     div {},
-      button {onClick: @newCourse}, "New Course"
+      h2 {}, 'Courses'
       Table {striped: true, bordered: true, condensed: true, hover: true},
         thead {},
           th {}, 'Name'
@@ -27,8 +31,5 @@ module.exports = React.createClass
           th {}, 'Credit'
         tbody {},
           @props.courses.map (course) ->
-            tr {key: course.id},
-              td {}, course.name
-              td {}, course.grade
-              td {}, course.level
-              td {}, course.credit
+            CourseComponent {course}
+      button {onClick: @newCourse}, 'New Course'
