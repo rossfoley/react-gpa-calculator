@@ -1,0 +1,19 @@
+module.exports = {
+  entry: ['./index'],
+  output: {
+    path: './',
+    filename: 'bundle.js'
+  },
+  resolve: {
+    extensions: ["", ".coffee", ".js"],
+    moduleDirectories: ["js", "node_modules"]
+  },
+  module: {
+    loaders: [
+      { test: /\.scss$/, loaders: ['style', 'css', 'sass-loader'] },
+      { test: /\.coffee$/, loader: "coffee-loader"},
+      { test: /\.(png|woff|woff2|eot|ttf|svg|otf)$/, loader: 'url-loader?limit=100000' }
+    ]
+  },
+  plugins: []
+};

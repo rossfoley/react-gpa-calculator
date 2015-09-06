@@ -1,0 +1,37 @@
+{
+  "name": "GPACalculator",
+  "version": "1.0.0",
+  "description": "GPA Calculator for Lewis Mills GPA system",
+  "main": "index",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "devserve": "env UV_THREADPOOL_SIZE=100 webpack-dev-server -d --config webpack.dev.config.js --content-base ./ --progress --colors",
+    "devbuild": "env UV_THREADPOOL_SIZE=100 webpack -d --config webpack.dev.config.js --profile --progress --colors",
+    "prodbuild": "env UV_THREADPOOL_SIZE=100 webpack -p --config webpack.prod.config.js --profile --progress --colors"
+  },
+  "author": "Ross Foley",
+  "license": "",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "dependencies": {
+    "alt": "^0.16.10",
+    "coffee-loader": "^0.7.2",
+    "css-loader": "^0.9.1",
+    "dotenv": "^1.2.0",
+    "express": "^4.13.0",
+    "file-loader": "^0.8.4",
+    "jquery": "2.1.4",
+    "react": "^0.13.3",
+    "react-bootstrap": "^0.23.5",
+    "react-bootstrap-modal": "^1.2.1",
+    "sass-loader": "^1.0.2",
+    "style-loader": "^0.8.3",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.6.0",
+    "webpack-dev-server": "^1.7.0"
+  }
+}
