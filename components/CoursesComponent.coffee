@@ -7,9 +7,14 @@ module.exports = React.createClass
   displayName: "CoursesComponent"
 
   render: ->
-    @props.courses.map (course) ->
-      div {},
-        li {}, course.name
-        li {}, course.grade
-        li {}, course.level
-        li {}, course.credit
+    div {},
+      @props.courses.map (course) ->
+        div {},
+          li {},
+            course.name
+          li {},
+            course.grade
+          li {},
+            course.level
+          li {},
+            course.credit

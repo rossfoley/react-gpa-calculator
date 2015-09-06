@@ -1,7 +1,10 @@
 React = require("react")
 
+{div} = React.DOM
+
 module.exports = React.createClass
   displayName: "InfoComponent"
 
   render: ->
-    "Info Component"
+    div {},
+      "Info Component"

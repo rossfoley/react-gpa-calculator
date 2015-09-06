@@ -1,6 +1,6 @@
 React = require("react")
-CourseStore = require("../../stores/CourseStore")
-CourseActions = require("../../actions/CourseActions")
+CourseStore = require("../stores/CourseStore")
+CourseActions = require("../actions/CourseActions")
 ReactStateMagicMixin = require("../assets/vendor/ReactStateMagicMixin")
 
 InfoComponent = React.createFactory require("./InfoComponent")
@@ -21,5 +21,5 @@ module.exports = React.createClass
 
   render: ->
     div {},
-      InfoComponent {courses: @getState().courses}
-      CoursesComponent {courses: @getState().courses}
+      InfoComponent {courses: @state.courses}
+      CoursesComponent {courses: @state.courses}
