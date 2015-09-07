@@ -13,7 +13,7 @@ Row = React.createFactory ReactBootstrap.Row
 Col = React.createFactory ReactBootstrap.Col
 Navbar = React.createFactory ReactBootstrap.Navbar
 
-{ div } = React.DOM
+{ div, hr } = React.DOM
 
 module.exports = React.createClass
   displayName: 'App'
@@ -36,4 +36,5 @@ module.exports = React.createClass
             GPAComponent {courses: @state.courses}
           Col {xs: 12, md: 8},
             CoursesComponent {courses: @state.courses}
+        hr {}
         InfoComponent {}
