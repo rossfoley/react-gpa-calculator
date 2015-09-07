@@ -8,6 +8,7 @@ node_modules/
 *.swp
 *~
 bundle.js.map
+gh-pages/
 
 !bundle.js
 !webpack.config.js
