@@ -6,6 +6,7 @@ ReactStateMagicMixin = require('../assets/vendor/ReactStateMagicMixin')
 
 GPAComponent = React.createFactory require('./GPAComponent')
 CoursesComponent = React.createFactory require('./CoursesComponent')
+NewCourseComponent = React.createFactory require('./NewCourseComponent')
 InfoComponent = React.createFactory require('./InfoComponent')
 
 Grid = React.createFactory ReactBootstrap.Grid
@@ -36,5 +37,6 @@ module.exports = React.createClass
             GPAComponent {courses: @state.courses}
           Col {xs: 12, md: 8},
             CoursesComponent {courses: @state.courses}
+            NewCourseComponent {}
         hr {}
         InfoComponent {}

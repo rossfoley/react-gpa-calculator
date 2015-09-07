@@ -3,10 +3,10 @@ gpa_values = require('./GPAValues')
 GPA =
   calculate: (courses, getValue) ->
     totalGpa = courses.reduce((sum, {credit, level, grade}) ->
-      sum + credit * getValue(gpa_values[grade], level)
+      sum + parseInt(credit) * getValue(gpa_values[grade], level)
     , 0.0)
     totalCredits = courses.reduce((sum, {credit}) ->
-      sum + credit
+      sum + parseInt(credit)
     , 0.0)
     totalGpa / totalCredits
 

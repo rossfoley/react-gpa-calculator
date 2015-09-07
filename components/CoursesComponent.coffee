@@ -13,14 +13,6 @@ module.exports = React.createClass
   propTypes:
     courses: React.PropTypes.array.isRequired
 
-  newCourse: ->
-    CourseActions.createCourse(
-      name: 'Test Course'
-      grade: 'A+'
-      level: 'AP'
-      credit: 1.0
-    )
-
   render: ->
     div {},
       h2 {}, 'Courses'
@@ -34,4 +26,3 @@ module.exports = React.createClass
         tbody {},
           @props.courses.map (course) ->
             CourseComponent {course}
-      Button {onClick: @newCourse}, 'New Course'
