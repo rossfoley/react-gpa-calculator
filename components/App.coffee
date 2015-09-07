@@ -24,7 +24,8 @@ module.exports = React.createClass
     registerStore: CourseStore
 
   componentDidMount: ->
-    # Load GPA data from localstore
+    if localStorage.getItem('courses') and localStorage.getItem('nextId')
+      CourseActions.loadFromLocalStorage()
 
   render: ->
     div {},

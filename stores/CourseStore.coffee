@@ -1,14 +1,12 @@
-alt           = require("../alt")
-CourseActions = require("../actions/CourseActions")
+alt           = require('../alt')
+CourseActions = require('../actions/CourseActions')
+_             = require('underscore')
 
 class CourseStore
-  displayName: "CourseStore"
+  displayName: 'CourseStore'
 
   constructor: ->
     @courses = []
-    @lsm_gpa = 0.0
-    @gpa = 0.0
-    @honors = "None"
     @nextId = 1
 
     @bindActions(CourseActions)
@@ -21,5 +19,18 @@ class CourseStore
       credit: data.credit
       grade: data.grade
     @courses.push courseData
+    @save()
+    
+  deleteCourse: (id) ->
+    @courses = _.reject(@courses, (course) -> course.id is id)
+    @save()
+
+  loadFromLocalStorage: ->
+    @courses = JSON.parse(localStorage.getItem 'courses')
+    @nextId = parseInt(localStorage.getItem 'nextId')
+
+  save: ->
+   localStorage.setItem 'courses', JSON.stringify(@courses)
+   localStorage.setItem 'nextId', @nextId
 
 module.exports = alt.createStore(CourseStore)

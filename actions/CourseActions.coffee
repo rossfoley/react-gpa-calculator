@@ -2,9 +2,6 @@ alt = require("../alt")
 
 class CourseActions
   constructor: ->
-    @generateActions "createCourse"
-
-  loadFromLocalStore: ->
-    # do stuff here
+    @generateActions "createCourse", "deleteCourse", "loadFromLocalStorage"
 
 module.exports = alt.createActions(CourseActions)
