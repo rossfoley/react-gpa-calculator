@@ -33,7 +33,7 @@ module.exports = React.createClass
     credit: '1.0'
 
   closeModal: ->
-    @setState showModal: false
+    @setState @getInitialState()
 
   showModal: ->
     @setState showModal: true
